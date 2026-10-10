@@ -49,3 +49,12 @@ The schema models satellites, deployers and auditable deployment events; payload
 ## AI policy demonstration
 
 The simulation is intentionally explainable and bounded: critical TT&C is preferred under low-power conditions, high-quality links permit SSTV, and moderate links use resilient Codec2. Production flight software would combine this fail-safe policy with a validated compact model, watchdogs, and operator overrides.
+
+## Production deployment
+
+The repository includes a Vercel serverless API entry point and production rewrites. Create a Supabase project, run `database/schema.sql` followed by `database/seed.sql` in its SQL editor, then configure these Vercel environment variables:
+
+- `DATABASE_URL`: Supabase transaction-pooler URI with `sslmode=require`
+- `USE_DEMO_DATA`: `false`
+
+Deploy the repository from Vercel. The frontend and `/api/*` routes are served from one origin.

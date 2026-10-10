@@ -73,5 +73,9 @@ app.post('/api/routing/simulate',async(req,res)=>{
     res.status(201).json(result.rows[0])
   }catch(e){res.status(500).json({error:'Routing simulation failed',detail:e instanceof Error?e.message:'Unknown error'})}
 })
-app.use(express.static('dist'));app.get('*path',(_req,res)=>res.sendFile('index.html',{root:'dist'}))
-app.listen(port,()=>console.log(`SomaiyaSat API listening on http://localhost:${port}`))
+if(!process.env.VERCEL){
+  app.use(express.static('dist'));app.get('*path',(_req,res)=>res.sendFile('index.html',{root:'dist'}))
+  app.listen(port,()=>console.log(`SomaiyaSat API listening on http://localhost:${port}`))
+}
+
+export default app
