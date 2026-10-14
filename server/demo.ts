@@ -1,7 +1,7 @@
 type Mode = 'TT&C' | 'SSTV' | 'Codec2' | 'M17'
 
 export const dashboard = {
-  satellite: { name: 'SomaiyaSat-1', norad: 'PENDING', state: 'NOMINAL', orbit: 1847, uptime: '127d 08h' },
+  satellite: { id: 1, name: 'SomaiyaSat-1', norad: 'PENDING', state: 'NOMINAL', orbit: 1847, uptime: '127d 08h' },
   telemetry: { battery: 78, temperature: 24.6, linkQuality: 86, storage: 41, powerDraw: 0.72 },
   deployment: { state: 'DEPLOYED', separationConfirmed: true, confirmedAt: '2026-08-06T09:42:18Z' },
   stations: [
